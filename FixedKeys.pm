@@ -12,9 +12,12 @@
 #   This script is free software; you can redistribute it and/or
 #   modify it under the same terms as Perl itself.
 #
-# $Id: FixedKeys.pm,v 1.6 2002/07/12 18:34:28 dave Exp dave $
+# $Id: FixedKeys.pm,v 1.7 2002/09/23 19:00:32 dave Exp dave $
 #
 # $Log: FixedKeys.pm,v $
+# Revision 1.7  2002/09/23 19:00:32  dave
+# Fixed to work under 5.8.0.
+#
 # Revision 1.6  2002/07/12 18:34:28  dave
 # Corrected Attirbute::Handlers dependency
 #
@@ -36,11 +39,11 @@ use Tie::Hash;
 use Carp;
 use vars qw(@ISA $VERSION);
 
-use Attribute::Handlers autotie => { __CALLER__::FixedKeys => __PACKAGE__ };
+use Attribute::Handlers autotie => { "__CALLER__::FixedKeys" => __PACKAGE__ };
 
 @ISA = qw(Tie::StdHash);
 
-$VERSION = sprintf "%d.%02d", '$Revision: 1.6 $ ' =~ /(\d+)\.(\d+)/;
+$VERSION = sprintf "%d.%02d", '$Revision: 1.7 $ ' =~ /(\d+)\.(\d+)/;
 
 sub TIEHASH {
   my $class = shift;

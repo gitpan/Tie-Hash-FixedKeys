@@ -2,6 +2,7 @@ Changes
 FixedKeys.pm
 Makefile.PL
 MANIFEST
-test.pl
+t/test.t
+t/pod.t
 COPYING
 README

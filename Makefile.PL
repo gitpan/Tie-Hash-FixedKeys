@@ -5,5 +5,6 @@ WriteMakefile(
     'NAME'		=> 'Tie::Hash::FixedKeys',
     'VERSION_FROM'	=> 'FixedKeys.pm', # finds $VERSION
     'PREREQ_PM'		=> { Attribute::Handlers => 0.76,
-                             Test::Simple => 0 },
+                             Test::Simple => 0,
+                             Test::Pod    => 0 },
 );
