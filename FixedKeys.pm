@@ -12,9 +12,12 @@
 #   This script is free software; you can redistribute it and/or
 #   modify it under the same terms as Perl itself.
 #
-# $Id: FixedKeys.pm,v 1.3 2001/09/02 16:55:18 dave Exp dave $
+# $Id: FixedKeys.pm,v 1.4 2001/09/03 20:03:53 dave Exp dave $
 #
 # $Log: FixedKeys.pm,v $
+# Revision 1.4  2001/09/03 20:03:53  dave
+# Minor fixes.
+#
 # Revision 1.3  2001/09/02 16:55:18  dave
 # Added RCS headers
 #
@@ -29,7 +32,7 @@ use vars qw(@ISA $VERSION);
 
 @ISA = qw(Tie::StdHash);
 
-$VERSION = sprintf "%d.%02d", '$Revision: 1.3 $ ' =~ /(\d+)\.(\d+)/;
+$VERSION = sprintf "%d.%02d", '$Revision: 1.4 $ ' =~ /(\d+)\.(\d+)/;
 
 sub TIEHASH {
   my $class = shift;
@@ -70,7 +73,6 @@ sub CLEAR {
 
 1;
 __END__
-# Below is stub documentation for your module. You better edit it!
 
 =head1 NAME
 
