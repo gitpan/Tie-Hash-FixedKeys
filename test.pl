@@ -8,7 +8,8 @@
 
 BEGIN { $| = 1; print "1..1\n"; }
 END {print "not ok 1\n" unless $loaded;}
-use Tie::Hash::FixedKeys;
+#use Tie::Hash::FixedKeys;
+require Tie::Hash::FixedKeys;
 $loaded = 1;
 print "ok 1\n";
 
@@ -37,9 +38,16 @@ print exists $hash{four} ? 'not ' : '', "ok 6\n";
 delete $hash{one};
 print $hash{one} == 1 ? 'not ' : '', "ok 7\n";
 print defined $hash{one} ? 'not ' : '', "ok 8\n";
-print exists $hash{one} ? '' : 'not ', "ok 9\n";
+print exists $hash{one} ? 'not ' : '', "ok 9\n";
 
 delete $hash{four};
 print $hash{four} == 4 ? 'not ' : '', "ok 10\n";
 print defined $hash{four} ? 'not ' : '', "ok 11\n";
 print exists $hash{four} ? 'not ' : '', "ok 12\n";
+
+my %other_hash;
+
+tie %other_hash, 'Tie::Hash::FixedKeys'; 'four';
+
+$other_hash{four} = 4;
+$hash{four} = 4;

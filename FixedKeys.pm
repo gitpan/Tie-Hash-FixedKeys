@@ -1,16 +1,35 @@
+#
+# DESCRIPTION
+#  Tie::Hash::FixedKeys is a Perl module that allows you to define hashes
+#  with fixed sets of keys.
+#
+# AUTHOR
+#   Dave Cross   <dave@mag-sol.com>
+#
+# COPYRIGHT
+#   Copyright (C) 2001, Magnum Solutions Ltd.  All Rights Reserved.
+#
+#   This script is free software; you can redistribute it and/or
+#   modify it under the same terms as Perl itself.
+#
+# $Id: FixedKeys.pm,v 1.3 2001/09/02 16:55:18 dave Exp dave $
+#
+# $Log: FixedKeys.pm,v $
+# Revision 1.3  2001/09/02 16:55:18  dave
+# Added RCS headers
+#
+
 package Tie::Hash::FixedKeys;
 
 use strict;
-use warnings;
 
 use Tie::Hash;
 use Carp;
 use vars qw(@ISA $VERSION);
-require Exporter;
 
 @ISA = qw(Tie::StdHash);
 
-$VERSION = '1.00';
+$VERSION = sprintf "%d.%02d", '$Revision: 1.3 $ ' =~ /(\d+)\.(\d+)/;
 
 sub TIEHASH {
   my $class = shift;
@@ -36,7 +55,17 @@ sub DELETE {
 
   return unless exists $self->{$key};
 
+  my $ret = $self->{$key};
+
   $self->{$key} = undef;
+
+  return $ret;
+}
+
+sub CLEAR {
+  my $self = shift;
+
+  $self->{$_} = undef foreach keys %$self;
 }
 
 1;
