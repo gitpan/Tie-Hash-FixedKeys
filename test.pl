@@ -1,16 +1,14 @@
 # Before `make install' is performed this script should be runnable with
 # `make test'. After `make install' it should work as `perl test.pl'
 
-######################### We start with some black magic to print on failure.
+use Test::Simple tests => 12;
 
-# Change 1..1 below to 1..last_test_to_print .
-# (It may become useful if the test is moved to ./t subdirectory.)
-
-BEGIN { $| = 1; print "1..1\n"; }
 END {print "not ok 1\n" unless $loaded;}
+
 use Tie::Hash::FixedKeys;
 $loaded = 1;
-print "ok 1\n";
+ok($loaded);
+
 
 ######################### End of black magic.
 
@@ -18,28 +16,24 @@ print "ok 1\n";
 # (correspondingly "not ok 13") depending on the success of chunk 13
 # of the test code):
 
-my %hash;
-
-my @keys = qw(one two three);
-
-tie %hash, 'Tie::Hash::FixedKeys', @keys;
+my %hash : FixedKeys(qw(one two three));
 
 $hash{one} = 1;
-print $hash{one} == 1 ? '' : 'not ', "ok 2\n";
+ok($hash{one} == 1);
 $hash{two} = 2;
-print $hash{two} == 2 ? '' : 'not ', "ok 3\n";
+ok($hash{two} == 2);
 
 eval { $hash{four} = 4 };
-print $hash{four} == 4 ? 'not ' : '', "ok 4\n";
-print defined $hash{four} ? 'not ' : '', "ok 5\n";
-print exists $hash{four} ? 'not ' : '', "ok 6\n";
+ok(not $hash{four} == 4);
+ok(not defined $hash{four});
+ok(not exists $hash{four});
 
 delete $hash{one};
-print $hash{one} == 1 ? 'not ' : '', "ok 7\n";
-print defined $hash{one} ? 'not ' : '', "ok 8\n";
-print exists $hash{one} ? '' : 'not', "ok 9\n";
+ok(not $hash{one} == 1);
+ok(not defined $hash{one});
+ok(exists $hash{one});
 
 delete $hash{four};
-print $hash{four} == 4 ? 'not ' : '', "ok 10\n";
-print defined $hash{four} ? 'not ' : '', "ok 11\n";
-print exists $hash{four} ? 'not ' : '', "ok 12\n";
+ok(not $hash{four} == 4);
+ok(not defined $hash{four});
+ok(not exists $hash{four});

@@ -4,5 +4,5 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'		=> 'Tie::Hash::FixedKeys',
     'VERSION_FROM'	=> 'FixedKeys.pm', # finds $VERSION
-    'PREREQ_PM'		=> {}, # e.g., Module::Name => 1.1
+    'PREREQ_PM'		=> { Attribute::Handlers => 0.76 },
 );
