@@ -12,9 +12,12 @@
 #   This script is free software; you can redistribute it and/or
 #   modify it under the same terms as Perl itself.
 #
-# $Id: FixedKeys.pm,v 1.5 2001/12/09 18:54:42 dave Exp $
+# $Id: FixedKeys.pm,v 1.6 2002/07/12 18:34:28 dave Exp dave $
 #
 # $Log: FixedKeys.pm,v $
+# Revision 1.6  2002/07/12 18:34:28  dave
+# Corrected Attirbute::Handlers dependency
+#
 # Revision 1.5  2001/12/09 18:54:42  dave
 # Added Attribute::Handlers interface.
 #
@@ -25,7 +28,7 @@
 # Added RCS headers
 #
 
-package Tie::Hash::FixedKeys;
+package Tie::Hash::FixedKeys; 
 
 use strict;
 
@@ -37,7 +40,7 @@ use Attribute::Handlers autotie => { __CALLER__::FixedKeys => __PACKAGE__ };
 
 @ISA = qw(Tie::StdHash);
 
-$VERSION = sprintf "%d.%02d", '$Revision: 1.5 $ ' =~ /(\d+)\.(\d+)/;
+$VERSION = sprintf "%d.%02d", '$Revision: 1.6 $ ' =~ /(\d+)\.(\d+)/;
 
 sub TIEHASH {
   my $class = shift;
