@@ -1,4 +1,4 @@
-# $Id: FixedKeys.pm,v 1.8 2004/10/23 16:05:19 dave Exp $
+# $Id: FixedKeys.pm,v 1.10 2006/06/01 18:59:12 dave Exp $
 
 =head1 NAME
 
@@ -49,6 +49,15 @@ in the list. These values are initialised to C<undef> when the hash is
 tied. If you try to C<delete> one if the keys, the effect is that the
 value is reset to C<undef>.
 
+=head2 NOTE
+
+Versions of Perl from 5.8.0 include a module called L<Hash::Util> which
+contains a function called C<lock_keys> which does the same as this module
+but in a faster and more powerful way. I recommend that you use that 
+method in place of this module.
+
+This module is left on CPAN as an example of tied hashes.
+
 =cut
 
 package Tie::Hash::FixedKeys; 
@@ -63,7 +72,7 @@ use Attribute::Handlers autotie => { "__CALLER__::FixedKeys" => __PACKAGE__ };
 
 @ISA = qw(Tie::StdHash);
 
-$VERSION = sprintf "%d.%02d", '$Revision: 1.8 $ ' =~ /(\d+)\.(\d+)/;
+$VERSION = sprintf "%d.%02d", '$Revision: 1.10 $ ' =~ /(\d+)\.(\d+)/;
 
 =head1 METHODS
 
@@ -134,7 +143,7 @@ __END__
 
 =head1 AUTHOR
 
-Dave Cross <dave@dave.org.uk>
+Dave Cross <dave@mag-sol.com>
 
 =head1 COPYRIGHT
 
@@ -148,9 +157,15 @@ modify it under the same terms as Perl itself.
 perl(1), perltie(1).
 
 =cut
-
+   
 #
 # $Log: FixedKeys.pm,v $
+# Revision 1.10  2006/06/01 18:59:12  dave
+# Added note about Hash::Util::lock_keys.
+#
+# Revision 1.9  2005/10/22 21:29:58  dave
+# Added pod coverage tests.
+#
 # Revision 1.8  2004/10/23 16:05:19  dave
 # Improved test coverage.
 #

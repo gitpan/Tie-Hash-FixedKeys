@@ -1,13 +1,19 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Tie-Hash-FixedKeys
-version:      1.08
-version_from: FixedKeys.pm
-installdirs:  site
+---
+name: Tie-Hash-FixedKeys
+version: 1.10
+author:
+  - Dave Cross <dave@mag-sol.com>
+abstract: Perl extension for hashes with fixed keys
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
 requires:
-    Attribute::Handlers:           0.76
-    Test::Pod:                     0
-    Test::Simple:                  0
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.21
+  perl: 5.6.0
+provides:
+  Tie::Hash::FixedKeys:
+    file: lib/Tie/Hash/FixedKeys.pm
+    version: 1.10
+generated_by: Module::Build version 0.2801
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
