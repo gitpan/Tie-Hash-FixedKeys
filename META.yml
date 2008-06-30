@@ -1,6 +1,6 @@
 ---
 name: Tie-Hash-FixedKeys
-version: 1.11
+version: 1.12
 author:
   - 'Dave Cross <dave@mag-sol.com>'
 abstract: Perl extension for hashes with fixed keys
@@ -12,7 +12,7 @@ requires:
 provides:
   Tie::Hash::FixedKeys:
     file: lib/Tie/Hash/FixedKeys.pm
-    version: 17
+    version: 19
 generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

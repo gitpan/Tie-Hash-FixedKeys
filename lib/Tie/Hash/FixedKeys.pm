@@ -1,4 +1,4 @@
-# $Id: FixedKeys.pm 17 2008-06-30 05:36:01Z dave $
+# $Id: FixedKeys.pm 19 2008-06-30 14:51:47Z dave $
 
 =head1 NAME
 
@@ -62,7 +62,9 @@ This module is left on CPAN as an example of tied hashes.
 
 package Tie::Hash::FixedKeys; 
 
+use 5.006;
 use strict;
+use warnings;
 
 use Tie::Hash;
 use Carp;
@@ -72,7 +74,7 @@ use Attribute::Handlers autotie => { "__CALLER__::FixedKeys" => __PACKAGE__ };
 
 @ISA = qw(Tie::StdHash);
 
-$VERSION = sprintf "%d", '$Revision: 17 $ ' =~ /(\d+)/;
+$VERSION = sprintf "%d", '$Revision: 19 $ ' =~ /(\d+)/;
 
 =head1 METHODS
 

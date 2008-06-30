@@ -1,5 +1,9 @@
 2008-06-30  dave
 
+	* [r20] Build.PL:
+	  Increment version
+	* [r19] lib/Tie/Hash/FixedKeys.pm:
+	  Added 'use warnings' (and, therefore, 'use 5.006').
 	* [r17] lib/Tie/Hash/FixedKeys.pm:
 	  Fixed $VERSION.
 	* [r16] Build.PL, lib/Tie/Hash/FixedKeys.pm:
